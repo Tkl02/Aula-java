@@ -27,9 +27,5 @@ public class Aula{
       b = (Math.exp(1/2 * Math.log(a)));
 
       System.out.println("o valor de exp, log "+ a + " e: "+ b);
-
-//////////////////////////////////
-
-
    }
 }
