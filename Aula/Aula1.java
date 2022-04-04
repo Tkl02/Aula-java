@@ -2,7 +2,7 @@ package Aula;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
-public class Aula{
+public class Aula1{
    public static void main(String[] args) {
 
       try (Scanner scan = new Scanner(System.in)) {
