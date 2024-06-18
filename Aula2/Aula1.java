@@ -1,4 +1,4 @@
-package Aula;
+package Aula2;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
