@@ -1,6 +1,3 @@
-package Aula6;
-
-// classe constuturo, getters e setters
 public class Autor {
     private String nome;
     private String titulacao;
@@ -14,7 +11,15 @@ public class Autor {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public String getTitulacao() {
         return titulacao;
+    }
+
+    public void setTitulacao(String titulacao) {
+        this.titulacao = titulacao;
     }
 }

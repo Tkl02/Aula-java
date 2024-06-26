@@ -1,24 +1,25 @@
-package Aula6;
 
-// bibliotecas
-import java.util.Date;
-import java.util.List;
+import java.util.ArrayList;
 
-// classe contrutora
 public abstract class Publicacao {
     private String titulo;
-    private Date dataPublicacao;
-    private List<Publicacao> referencias;
-    private List<Autor> autores;
+    private String dataPublicacao;
+    private ArrayList<Autor> autores;
+    private ArrayList<Publicacao> referencias;
+    private boolean disponivel;
+    private double multa;
 
-    public Publicacao(String titulo, Date dataPublicacao, List<Publicacao> referencias, List<Autor> autores) {
+
+    public Publicacao(String titulo, String dataPublicacao, double multa, Autor autor) {
         this.titulo = titulo;
         this.dataPublicacao = dataPublicacao;
-        this.referencias = referencias;
-        this.autores = autores;
+        this.autores = new ArrayList<Autor>();
+        this.autores.add(autor);
+        this.referencias = new ArrayList<Publicacao>();
+        this.disponivel = true;
+        this.multa = multa;
     }
 
-    // gerando getters e setters
     public String getTitulo() {
         return titulo;
     }
@@ -27,29 +28,55 @@ public abstract class Publicacao {
         this.titulo = titulo;
     }
 
-    public void setDataPublicacao(Date dataPublicacao) {
-        this.dataPublicacao = dataPublicacao;
-    }
-
-    public void setReferencias(List<Publicacao> referencias) {
-        this.referencias = referencias;
-    }
-
-    public void setAutores(List<Autor> autores) {
-        this.autores = autores;
-    }
-
-    public Date getDataPublicacao() {
+    public String getDataPublicacao() {
         return dataPublicacao;
     }
 
-    public List<Publicacao> getReferencias() {
-        return referencias;
+    public void setDataPublicacao(String dataPublicacao) {
+        this.dataPublicacao = dataPublicacao;
     }
 
-    public List<Autor> getAutores() {
-        return autores;
+    public boolean isDisponivel() {
+        return disponivel;
     }
-    // declarando um metodo abstrato
-    public abstract double calcularMulta(int numeroRenovacoes);
+
+   public void emprestar(){
+        this.disponivel = false;
+   }
+
+   public void devolver(){
+        this.disponivel = true;
+   }
+
+    public double getMulta() {
+        return multa;
+    }
+
+    public void setMulta(double multa) {
+        this.multa = multa;
+    }
+
+    public void addAutor(Autor autor){
+        this.autores.add(autor);
+    }
+
+    public void removeAutor(Autor autor){
+        if(this.autores.size() != 1){
+            this.autores.remove(autor);
+        }
+    }
+
+    public void editAutor(int pos, Autor autor){
+        this.autores.set(pos, autor);
+    }
+
+    public void addReferencia(Publicacao referencia){
+        this.referencias.add(referencia);
+    }
+
+    public void removeReferencia(Publicacao referencia){
+        this.referencias.remove(referencia);
+    }
+
+
 }

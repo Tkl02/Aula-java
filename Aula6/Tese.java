@@ -1,40 +1,27 @@
-package Aula6;
-
-import java.util.Date;
-import java.util.List;
-
-// classe
-public class Tese extends Publicacao {
-    // variaveis
-    private int numeroPaginas;
-    private String resumo;
-    private Date dataDefesa;
+public class Tese extends Publicacao{
+    private int nroPaginas;
     private String instituicao;
+    private String resumo;
+    private String dataDefesa;
 
-    // contrutor
-    public Tese(String titulo, Date dataPublicacao, List<Publicacao> referencias, List<Autor> autores,
-            int numeroPaginas, String resumo, Date dataDefesa, String instituicao) {
-        super(titulo, dataPublicacao, referencias, autores);
-        this.numeroPaginas = numeroPaginas;
-        this.resumo = resumo;
-        this.dataDefesa = dataDefesa;
+    public Tese(String titulo, String dataPublicacao, double multa, Autor autor, int nroPaginas, String instituicao, String resumo, String dataDefesa) {
+        super(titulo, dataPublicacao, multa, autor);
+        this.nroPaginas = nroPaginas;
         this.instituicao = instituicao;
-    }
-    //getters e setters
-    public int getNumeroPaginas() {
-        return numeroPaginas;
-    }
-
-    public void setNumeroPaginas(int numeroPaginas) {
-        this.numeroPaginas = numeroPaginas;
-    }
-
-    public void setResumo(String resumo) {
         this.resumo = resumo;
+        this.dataDefesa = dataDefesa;
     }
 
-    public void setDataDefesa(Date dataDefesa) {
-        this.dataDefesa = dataDefesa;
+    public int getNroPaginas() {
+        return nroPaginas;
+    }
+
+    public void setNroPaginas(int nroPaginas) {
+        this.nroPaginas = nroPaginas;
+    }
+
+    public String getInstituicao() {
+        return instituicao;
     }
 
     public void setInstituicao(String instituicao) {
@@ -45,18 +32,21 @@ public class Tese extends Publicacao {
         return resumo;
     }
 
-    public Date getDataDefesa() {
+    public void setResumo(String resumo) {
+        this.resumo = resumo;
+    }
+
+    public String getDataDefesa() {
         return dataDefesa;
     }
 
-    public String getInstituicao() {
-        return instituicao;
+    public void setDataDefesa(String dataDefesa) {
+        this.dataDefesa = dataDefesa;
     }
 
-    //metodo para calcula a multa
     @Override
-    public double calcularMulta(int numeroRenovacoes) {
-        // Implementação específica para multa de teses
-        return numeroRenovacoes > 3 ? (numeroRenovacoes - 3) * 3.0 : 0.0;
+    public void addAutor(Autor autor){
+        super.editAutor(0, autor);
     }
+
 }
